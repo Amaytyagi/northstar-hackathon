@@ -3,37 +3,150 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NorthStar | Move Smart. Live Strong.</title>
-  <meta http-equiv="refresh" content="0; url=./landing.html" />
+  <title>NorthStar | First City Finance & Life Coach</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f7ff;
-      color: #0f172a;
-      display: grid;
-      place-items: center;
-      min-height: 100vh;
+    :root{
+      --bg:#f5f8ff; --bg-soft:#edfef8; --card:#ffffff; --primary:#3b5bff; --primary-2:#1cc39b; --accent:#ffb84d;
+      --text:#101828; --muted:#475467; --line:#e6ebf5; --success:#1abf73; --danger:#ef4444; --shadow:0 20px 60px rgba(15,34,68,0.08);
     }
-    .box {
-      background: white;
-      border: 1px solid #e2e8f0;
-      border-radius: 18px;
-      padding: 24px 32px;
-      text-align: center;
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
-    }
-    a {
-      color: #4338ca;
-      font-weight: 700;
-      text-decoration: none;
-    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:linear-gradient(180deg,#f4f7ff,#fff 18%,#f6fff9);color:var(--text)}
+    a{text-decoration:none;color:inherit} img{max-width:100%;display:block}
+    .container{width:min(1200px,calc(100% - 32px));margin:0 auto}
+    .topbar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,0.8);backdrop-filter:blur(12px);border-bottom:1px solid rgba(230,235,245,0.9)}
+    .nav{height:78px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900;font-size:1.35rem}
+    .brand-mark{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--primary-2));display:grid;place-items:center;color:white;font-weight:900;box-shadow:0 12px 30px rgba(59,91,255,0.26)}
+    .nav-links{display:flex;gap:28px;color:var(--muted);font-weight:600}
+    .nav-links a:hover{color:var(--primary)}
+    .nav-cta{background:linear-gradient(135deg,var(--primary),#5973ff);color:#fff;border-radius:12px;padding:12px 18px;font-weight:800;box-shadow:0 12px 30px rgba(59,91,255,0.2)}
+    .hero{padding:72px 0 40px}.hero-grid{display:grid;grid-template-columns:1.08fr 0.92fr;gap:36px;align-items:center}
+    .eyebrow{display:inline-block;padding:8px 14px;border-radius:999px;background:#edf3ff;color:var(--primary);font-size:0.78rem;font-weight:800;letter-spacing:0.05em;text-transform:uppercase}
+    h1{margin:18px 0 18px;font-size:clamp(2.8rem,5vw,5.3rem);letter-spacing:-0.07em;line-height:0.96}
+    .hero p{font-size:1.08rem;line-height:1.8;color:var(--muted);max-width:620px}
+    .actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 22px;border-radius:14px;font-weight:800;border:1px solid transparent;transition:0.2s ease}
+    .btn:hover{transform:translateY(-1px)}
+    .primary{background:linear-gradient(135deg,var(--primary),#5f73ff);color:#fff;box-shadow:0 16px 26px rgba(59,91,255,0.2)}
+    .secondary{background:#fff;color:var(--text);border-color:var(--line)}
+    .hero-stats{display:flex;flex-wrap:wrap;gap:22px;margin-top:34px}.stat{min-width:150px}.stat .num{font-size:2rem;font-weight:900;letter-spacing:-0.05em}.stat .label{color:var(--muted);font-weight:700;margin-top:6px}
+    .phone-shell{position:relative;display:grid;place-items:center;padding:14px}.phone{width:min(360px,100%);border-radius:36px;background:linear-gradient(180deg,#121a2c,#101827);padding:16px 14px 12px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 30px 70px rgba(13,22,40,0.25)}
+    .camera{width:90px;height:22px;background:#0a0f1d;margin:0 auto 14px;border-radius:0 0 18px 18px}.screen{background:linear-gradient(180deg,#f8fbff,#eef7ff);border-radius:26px;padding:18px 14px;min-height:620px}.screen-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}.app-title{font-weight:900;font-size:1.1rem}.status{background:#eafcf3;color:#0c8450;font-size:0.72rem;font-weight:800;padding:8px 10px;border-radius:999px}.balance-box{background:linear-gradient(135deg,var(--primary),#5d73ff);color:white;border-radius:22px;padding:18px 16px;box-shadow:0 18px 30px rgba(59,91,255,0.18)}.small-label{text-transform:uppercase;letter-spacing:0.08em;opacity:0.8;font-size:0.72rem;font-weight:800}.balance-box .big{margin-top:12px;font-size:2.5rem;font-weight:900;letter-spacing:-0.06em}.mini-grid{margin-top:18px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.mini-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px}.mini-card .label{color:var(--muted);font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;font-weight:800}.mini-card .value{margin-top:8px;font-size:1.35rem;font-weight:900}.list-box{background:#fff;border:1px solid var(--line);border-radius:18px;margin-top:18px;padding:8px 12px}.list-row{display:flex;justify-content:space-between;align-items:center;padding:12px 8px;border-bottom:1px solid #edf2f8}.list-row:last-child{border-bottom:none}.row-left{display:flex;align-items:center;gap:10px;font-weight:700}.dot{width:10px;height:10px;border-radius:50%;display:inline-block}.dot.blue{background:linear-gradient(135deg,var(--primary),#5e73ff)}.dot.green{background:linear-gradient(135deg,var(--primary-2),#5ad7b5)}.dot.orange{background:linear-gradient(135deg,#f7b955,#ff8e3c)}
+    .section{padding:90px 0}.section-head{margin-bottom:28px;max-width:720px}.section-head h2{margin:12px 0 14px;font-size:clamp(2.1rem,3vw,3.2rem);letter-spacing:-0.05em;line-height:1.06}.section-head p{margin:0;color:var(--muted);font-size:1.02rem;line-height:1.8}.logo-bar{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px 24px;box-shadow:var(--shadow);margin:30px 0 0}.logo-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;text-align:center;color:#97a3b5;font-size:0.95rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase}.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.feature-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px 22px;box-shadow:0 10px 25px rgba(15,34,68,0.03)}.feature-icon{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;font-size:1.5rem;background:linear-gradient(135deg,#edf3ff,#eafcf6);margin-bottom:18px}.feature-card h3{margin:0 0 10px;font-size:1.3rem}.feature-card p{margin:0;color:var(--muted);line-height:1.8;font-size:0.97rem}.metrics-panel{background:linear-gradient(135deg,#101827,#1d2a40);color:#fff;border-radius:30px;padding:34px 28px;box-shadow:var(--shadow)}.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:24px}.metric-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:22px}.metric-box .big{font-size:2.3rem;font-weight:900;letter-spacing:-0.06em}.metric-box .small{margin-top:8px;color:#d9e3f7;line-height:1.6;font-weight:600}.workflow{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.step{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px 22px;position:relative;overflow:hidden}.step-num{position:absolute;top:20px;right:18px;font-size:2.3rem;font-weight:900;color:#edf3ff;letter-spacing:-0.06em}.step h3{margin-top:26px;font-size:1.35rem}.step p{color:var(--muted);margin:12px 0 0;line-height:1.8}.dashboard-showcase{display:grid;grid-template-columns:1.2fr 0.8fr;gap:22px;align-items:center}.dashboard-panel{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:22px}.dash-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.dash-top .left{font-weight:800;font-size:1.1rem}.status-chip{background:#eafcf3;color:#0c8450;border-radius:999px;padding:7px 10px;font-size:0.72rem;font-weight:800}.bars{display:flex;align-items:flex-end;gap:16px;height:180px;margin-top:12px}.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:8px}.bar{width:100%;background:linear-gradient(180deg,var(--primary),#6d83ff);border-radius:12px 12px 0 0;min-height:30px}.bar.orange{background:linear-gradient(180deg,#ffb84d,#ff8d3b)}.bar.green{background:linear-gradient(180deg,#1cc39b,#10b981)}.bar-label{font-size:0.75rem;color:var(--muted);font-weight:700}.mini-panel{background:linear-gradient(180deg,#f8fbff,#f4fff8);border:1px solid var(--line);border-radius:22px;padding:20px}.mini-panel h4{margin:0 0 12px;font-size:1.2rem}.score{font-size:2.4rem;font-weight:900;letter-spacing:-0.06em;margin-bottom:8px}.progress-line{width:100%;height:10px;background:#ebf1fa;border-radius:999px;overflow:hidden;margin:16px 0 18px}.progress-line > span{display:block;width:68%;height:100%;background:linear-gradient(90deg,var(--primary),var(--primary-2));border-radius:999px}.mini-list{list-style:none;padding:0;margin:0;display:grid;gap:10px}.mini-list li{display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid var(--line);padding:12px 14px;border-radius:14px;font-weight:700}.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px}.pricing-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px 22px;box-shadow:0 8px 24px rgba(15,34,68,0.03)}.pricing-card.featured{background:linear-gradient(180deg,#f4f8ff,#f4fff8);border:1.5px solid #dfe8ff;position:relative;overflow:hidden}.pricing-card.featured::before{content:"Most Popular";position:absolute;top:16px;right:16px;background:linear-gradient(135deg,var(--primary),#5673ff);color:#fff;font-size:0.72rem;padding:8px 10px;border-radius:999px;font-weight:800}.pricing-card h3{margin:0 0 12px;font-size:1.4rem}.price{font-size:2.8rem;font-weight:900;letter-spacing:-0.07em;margin:0 0 10px}.price small{font-size:0.9rem;color:var(--muted);font-weight:700}.pricing-card p{margin:0 0 18px;color:var(--muted);line-height:1.7}.pricing-list{list-style:none;padding:0;margin:0 0 22px;display:grid;gap:10px}.pricing-list li{display:flex;align-items:center;gap:10px;color:#1d2b3d;font-weight:600}.check{width:20px;height:20px;border-radius:50%;background:#e7f9ee;color:#0d8a58;display:grid;place-items:center;font-weight:900;font-size:0.75rem}.testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px}.quote{background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:0 8px 22px rgba(15,34,68,0.02)}.quote p{margin:0 0 18px;line-height:1.8;color:var(--muted)}.person{display:flex;align-items:center;gap:12px}.ava{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#edf3ff,#ddfdf0);display:grid;place-items:center;font-weight:900;color:var(--primary)}.faq{max-width:900px;margin:0 auto}.faq-item{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 22px;margin-bottom:14px}.faq-item strong{display:block;font-size:1.05rem;margin-bottom:8px}.faq-item span{color:var(--muted);line-height:1.8}.cta-box{background:linear-gradient(135deg,#101827,#1b2b42);border-radius:30px;color:#fff;padding:36px 30px;display:flex;align-items:center;justify-content:space-between;gap:20px;box-shadow:var(--shadow)}.cta-box h3{margin:0 0 12px;font-size:clamp(2rem,3vw,3.2rem);letter-spacing:-0.06em;line-height:1}.cta-box p{margin:0;color:#dfe7f7;line-height:1.7}footer{padding:26px 0 60px;color:var(--muted);text-align:center;font-weight:600}@media (max-width:980px){.hero-grid,.dashboard-showcase,.feature-grid,.pricing,.testimonial-grid,.workflow,.metrics-grid{grid-template-columns:1fr}.nav-links{display:none}.cta-box{flex-direction:column;align-items:flex-start}}@media (max-width:560px){.actions{flex-direction:column;align-items:stretch}.btn{width:100%}}
   </style>
 </head>
 <body>
-  <div class="box">
-    <h2>Redirecting to NorthStar...</h2>
-    <p>If it does not open automatically, <a href="./landing.html">click here</a>.</p>
-  </div>
+  <header class="topbar">
+    <div class="container nav">
+      <div class="brand"><div class="brand-mark">N</div><span>NorthStar</span></div>
+      <nav class="nav-links">
+        <a href="features.html">Product</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="app.html">Demo</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a href="app.html" class="nav-cta">Open app</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Built for first-time movers</span>
+        <h1>Move out. Spend smart. Build a stronger life.</h1>
+        <p>NorthStar helps students and young professionals moving to a new city for the first time manage real money, reduce lifestyle pressure, and build healthy financial habits from day one.</p>
+        <div class="actions">
+          <a href="app.html" class="btn primary">Open product demo</a>
+          <a href="features.html" class="btn secondary">See features</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><div class="num">90 days</div><div class="label">starter roadmap</div></div>
+          <div class="stat"><div class="num">₹5k+</div><div class="label">average savings unlocked</div></div>
+          <div class="stat"><div class="num">4.9/5</div><div class="label">user satisfaction</div></div>
+        </div>
+      </div>
+      <div class="phone-shell">
+        <div class="phone">
+          <div class="camera"></div>
+          <div class="screen">
+            <div class="screen-head"><div class="app-title">NorthStar</div><div class="status">On track</div></div>
+            <div class="balance-box"><div class="small-label">Monthly budget</div><div class="big">₹25,000</div></div>
+            <div class="mini-grid">
+              <div class="mini-card"><div class="label">Savings</div><div class="value">₹5,000</div></div>
+              <div class="mini-card"><div class="label">Left</div><div class="value">₹8,700</div></div>
+            </div>
+            <div class="list-box">
+              <div class="list-row"><div class="row-left"><span class="dot blue"></span>Rent</div><strong>₹7,000</strong></div>
+              <div class="list-row"><div class="row-left"><span class="dot green"></span>Food</div><strong>₹4,500</strong></div>
+              <div class="list-row"><div class="row-left"><span class="dot orange"></span>Lifestyle</div><strong>₹4,000</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="logo-bar"><div class="logo-grid"><div>Campus</div><div>PG Guide</div><div>FinFlow</div><div>Mentor</div><div>MoveHive</div></div></div></div>
+
+  <section class="section" id="product">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">The problem</span>
+        <h2>Moving away from home is exciting — but it’s also financially risky.</h2>
+        <p>Most young people are not bad with money. They are just unprepared. New-city pressure, social comparison, and lifestyle inflation create a perfect storm that makes first-time movers overspend before they understand their real reality.</p>
+      </div>
+      <div class="feature-grid" id="features">
+        <div class="feature-card"><div class="feature-icon">💸</div><h3>Smart budget builder</h3><p>Create realistic monthly budgets based on income, rent, food, travel, and lifestyle needs.</p></div>
+        <div class="feature-card"><div class="feature-icon">🛡️</div><h3>Impulse risk alerts</h3><p>Detect “show-off spending” patterns before they become harmful and help users course-correct early.</p></div>
+        <div class="feature-card"><div class="feature-icon">🧭</div><h3>90-day onboarding roadmap</h3><p>Help users stay stable, save smarter, and build their new life with structure instead of panic.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container"><div class="metrics-panel">
+      <div class="section-head" style="margin-bottom:0; max-width:700px;"><span class="eyebrow" style="background:rgba(255,255,255,0.08);color:#dfe7f7;">Impact</span><h2 style="color:#fff;">Built for real life, not just spreadsheets.</h2></div>
+      <div class="metrics-grid">
+        <div class="metric-box"><div class="big">10x</div><div class="small">More clarity into real monthly costs and city living expenses.</div></div>
+        <div class="metric-box"><div class="big">30%</div><div class="small">Less unnecessary lifestyle spending when users follow guided budgets.</div></div>
+        <div class="metric-box"><div class="big">90</div><div class="small">Days of guided onboarding for a calmer adjustment to a new city.</div></div>
+        <div class="metric-box"><div class="big">1</div><div class="small">Unified app for money + life adaptation + emotional stability.</div></div>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><span class="eyebrow">How it works</span><h2>Simple flow. Real value. Better decisions.</h2></div>
+      <div class="workflow">
+        <div class="step"><div class="step-num">01</div><h3>Set up your lifestyle profile</h3><p>Users enter their city, income, rent, daily costs, and spending habits to create a realistic plan.</p></div>
+        <div class="step"><div class="step-num">02</div><h3>Track your habits</h3><p>NorthStar highlights risk areas, warns on overspending, and makes it easy to act before issues grow.</p></div>
+        <div class="step"><div class="step-num">03</div><h3>Build a stable first 90 days</h3><p>Users get a step-by-step life plan with savings goals, expenses, and city-ready guidance.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="dashboard-showcase">
+        <div class="dashboard-panel">
+          <div class="dash-top"><div class="left">Overview</div><div class="status-chip">Healthy</div></div>
+          <div class="bars">
+            <div class="bar-col"><div class="bar" style="height:58%"></div><div class="bar-label">Jan</div></div>
+            <div class="bar-col"><div class="bar orange" style="height:68%"></div><div class="bar-label">Feb</div></div>
+            <div class="bar-col"><div class="bar green" style="height:80%"></div><div class="bar-label">Mar</div></div>
+            <div class="bar-col"><div class="bar" style="height:94%"></div><div class="bar-label">Apr</div></div>
+          </div>
+        </div>
+        <div class="mini-panel"><h4>Life stability score</h4><div class="score">68%</div><div class="progress-line"><span></span></div><ul class="mini-list"><li><span>Emergency fund</span><strong>₹2,500</strong></li><li><span>Food budget</span><strong>₹4,500</strong></li><li><span>Lifestyle risk</span><strong>Medium</strong></li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="cta">
+    <div class="container"><div class="cta-box"><div><h3>Build a stronger start.</h3><p>NorthStar helps young adults thrive in new cities without panic, overspending, or social pressure.</p></div><a href="app.html" class="btn primary" style="background:linear-gradient(135deg,#1cc39b,#18a873);">Launch with NorthStar</a></div></div>
+  </section>
+
+  <footer>© 2026 NorthStar. Built for first-time movers.</footer>
 </body>
 </html>
