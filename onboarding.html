@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NorthStar | Onboarding</title>
+  <style>
+    :root{--bg:#f5f8ff;--primary:#3b5bff;--primary-2:#1cc39b;--text:#101828;--muted:#475467;--line:#e6ebf5;--card:#fff;--shadow:0 20px 60px rgba(15,34,68,0.08)}
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:linear-gradient(180deg,#f4f7ff,#fff 18%,#f6fff9);color:var(--text)}
+    a{text-decoration:none;color:inherit}.container{width:min(1180px,calc(100% - 32px));margin:0 auto}
+    .top{height:76px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:rgba(255,255,255,0.8);backdrop-filter:blur(12px);border-bottom:1px solid rgba(230,235,245,0.9)}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900}.brand-mark{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--primary-2));display:grid;place-items:center;color:#fff}
+    .nav{display:flex;gap:24px;color:var(--muted);font-weight:600}.nav a:hover{color:var(--primary)}
+    .page{padding:52px 0 70px}.panel{background:#fff;border:1px solid var(--line);border-radius:26px;box-shadow:var(--shadow);padding:28px}.eyebrow{display:inline-block;padding:8px 14px;border-radius:999px;background:#edf3ff;color:var(--primary);font-size:0.78rem;font-weight:800;letter-spacing:0.06em;text-transform:uppercase}.header{margin:18px 0 28px}.header h1{font-size:clamp(2.2rem,4vw,4rem);letter-spacing:-0.06em;line-height:1.04;margin:0 0 10px}.header p{margin:0;color:var(--muted);line-height:1.8}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.field{display:flex;flex-direction:column;gap:8px}.field label{font-weight:800}.field input,.field select{width:100%;padding:14px 16px;border-radius:12px;border:1px solid var(--line);background:#f8fafc;outline:none;font:inherit}.row{display:grid;grid-template-columns:1fr 1fr;gap:18px}.btn-row{display:flex;justify-content:flex-end;margin-top:24px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 18px;border:none;border-radius:12px;background:linear-gradient(135deg,var(--primary),#5f73ff);color:#fff;font-weight:800;cursor:pointer}.note{margin-top:20px;padding:14px 16px;border-radius:16px;background:linear-gradient(135deg,#edf3ff,#edfff7);border:1px solid #dfe8ff;color:#1d2b3d;font-weight:600}.@media (max-width:860px){.grid,.row{grid-template-columns:1fr}.nav{display:none}}</style>
+</head>
+<body>
+  <header class="top">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;height:76px;">
+      <div class="brand"><div class="brand-mark">N</div><span>NorthStar</span></div>
+      <div class="nav"><a href="index.html">Home</a><a href="features.html">Features</a><a href="pricing.html">Pricing</a><a href="app.html">Demo</a></div>
+    </div>
+  </header>
+
+  <section class="page">
+    <div class="container">
+      <div class="panel">
+        <span class="eyebrow">Welcome</span>
+        <div class="header">
+          <h1>Set up your move-in plan.</h1>
+          <p>Tell us a little about your new city, monthly income, and the basics you need to keep stable in your first months.</p>
+        </div>
+
+        <div class="grid">
+          <div class="field"><label>City</label><input type="text" placeholder="e.g. Delhi" /></div>
+          <div class="field"><label>Current stage</label><select><option>Student</option><option>Working professional</option><option>Fresh graduate</option></select></div>
+          <div class="field"><label>Monthly income</label><input type="text" placeholder="₹25,000" /></div>
+          <div class="field"><label>Monthly rent</label><input type="text" placeholder="₹7,000" /></div>
+          <div class="field"><label>Food budget</label><input type="text" placeholder="₹4,500" /></div>
+          <div class="field"><label>Lifestyle budget</label><input type="text" placeholder="₹4,000" /></div>
+        </div>
+
+        <div class="note">We’ll use this to build your initial city-living budget and help you reduce overspending risk in the first 90 days.</div>
+
+        <div class="btn-row"><button class="btn" onclick="location.href='dashboard.html'">Finish setup</button></div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

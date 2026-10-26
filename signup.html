@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NorthStar | Sign Up</title>
+  <style>
+    :root{--bg:#f5f8ff;--primary:#3b5bff;--primary-2:#1cc39b;--text:#101828;--muted:#475467;--line:#e6ebf5;--shadow:0 20px 60px rgba(15,34,68,0.08)}
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:linear-gradient(180deg,#f4f7ff,#fff 18%,#f6fff9);color:var(--text)}
+    a{text-decoration:none;color:inherit}.container{width:min(1180px,calc(100% - 32px));margin:0 auto}
+    .top{height:76px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:rgba(255,255,255,0.8);backdrop-filter:blur(12px);border-bottom:1px solid rgba(230,235,245,0.9)}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900}.brand-mark{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--primary-2));display:grid;place-items:center;color:#fff}
+    .nav{display:flex;gap:24px;color:var(--muted);font-weight:600}.nav a:hover{color:var(--primary)}
+    .wrap{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 76px)}
+    .left{padding:40px 20px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#f8fbff,#f4fff8)}
+    .card{background:#fff;border:1px solid var(--line);border-radius:26px;box-shadow:var(--shadow);padding:34px 28px;max-width:500px;width:100%}
+    .eyebrow{display:inline-block;padding:8px 12px;border-radius:999px;background:#edf3ff;color:var(--primary);font-size:0.72rem;font-weight:800;letter-spacing:0.06em;text-transform:uppercase}
+    h1{font-size:clamp(2.1rem,4vw,3.4rem);letter-spacing:-0.06em;line-height:1.04;margin:18px 0}.lead{color:var(--muted);line-height:1.8}
+    .bullets{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px}.bullets li{display:flex;align-items:center;gap:12px;font-weight:700}.bul{width:22px;height:22px;border-radius:50%;background:#eafcf3;color:#11814d;display:grid;place-items:center;font-weight:900;font-size:0.8rem}
+    .right{padding:30px 20px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#101827,#1b2b42);color:#fff}
+    .auth-panel{width:min(440px,100%);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);padding:28px;border-radius:24px}
+    .auth-panel h2{margin:0 0 6px;font-size:1.8rem}.sub{color:#dfe7f7;margin:0 0 20px}.field{margin-bottom:16px}.field label{display:block;margin-bottom:8px;font-weight:700;color:#edf3ff}.field input{width:100%;padding:14px 16px;border-radius:12px;border:1px solid rgba(255,255,255,0.14);background:rgba(255,255,255,0.03);color:#fff;outline:none}.field input::placeholder{color:#c9d6ec}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;width:100%;border:none;border-radius:12px;background:linear-gradient(135deg,var(--primary),#5f73ff);color:#fff;font-weight:800;cursor:pointer}.meta{margin-top:14px;color:#dfe7f7;text-align:center}.meta a{color:#87d9ff;font-weight:700}@media (max-width:860px){.wrap{grid-template-columns:1fr}.nav{display:none}}</style>
+</head>
+<body>
+  <header class="top">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;height:76px;">
+      <div class="brand"><div class="brand-mark">N</div><span>NorthStar</span></div>
+      <div class="nav"><a href="index.html">Home</a><a href="features.html">Features</a><a href="pricing.html">Pricing</a><a href="app.html">Demo</a></div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="left">
+      <div class="card">
+        <span class="eyebrow">Join us</span>
+        <h1>Start your next chapter with clarity.</h1>
+        <p class="lead">NorthStar helps you understand the reality of a new city, track spending intelligently, and build a healthy financial routine before stress grows.</p>
+        <ul class="bullets">
+          <li><span class="bul">✓</span>Coach-led budget planning</li>
+          <li><span class="bul">✓</span>Personalized emergency goals</li>
+          <li><span class="bul">✓</span>Actionable 90-day roadmap</li>
+        </ul>
+      </div>
+    </div>
+    <div class="right">
+      <div class="auth-panel">
+        <h2>Create account</h2>
+        <p class="sub">Set up your city life and money plan in minutes.</p>
+        <div class="field"><label>Name</label><input type="text" placeholder="Your full name" /></div>
+        <div class="field"><label>Email</label><input type="email" placeholder="you@example.com" /></div>
+        <div class="field"><label>Password</label><input type="password" placeholder="Create a password" /></div>
+        <button class="btn" onclick="location.href='onboarding.html'">Create account</button>
+        <div class="meta">Already have an account? <a href="login.html">Log in</a></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

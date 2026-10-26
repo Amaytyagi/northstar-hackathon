@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NorthStar | Login</title>
+  <style>
+    :root{--bg:#f5f8ff;--primary:#3b5bff;--primary-2:#1cc39b;--text:#101828;--muted:#475467;--line:#e6ebf5;--shadow:0 20px 60px rgba(15,34,68,0.08)}
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:linear-gradient(180deg,#f4f7ff,#fff 18%,#f6fff9);color:var(--text)}
+    a{text-decoration:none;color:inherit}.container{width:min(1180px,calc(100% - 32px));margin:0 auto}
+    .top{height:76px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:rgba(255,255,255,0.8);backdrop-filter:blur(12px);border-bottom:1px solid rgba(230,235,245,0.9)}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900}.brand-mark{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--primary-2));display:grid;place-items:center;color:#fff}
+    .nav{display:flex;gap:24px;color:var(--muted);font-weight:600}.nav a:hover{color:var(--primary)}
+    .auth-wrap{display:grid;grid-template-columns:1.1fr 0.9fr;min-height:calc(100vh - 76px)}
+    .left{display:flex;align-items:center;justify-content:center;padding:40px 20px;background:linear-gradient(180deg,#f8fbff,#f4fff8)}
+    .panel{background:#fff;border:1px solid var(--line);border-radius:26px;box-shadow:var(--shadow);padding:36px 28px;max-width:500px;width:100%}
+    .eyebrow{display:inline-block;padding:8px 12px;border-radius:999px;background:#edf3ff;color:var(--primary);font-size:0.72rem;font-weight:800;letter-spacing:0.06em;text-transform:uppercase}
+    h1{font-size:clamp(2.1rem,4vw,3.5rem);letter-spacing:-0.06em;line-height:1.04;margin:18px 0}.lead{color:var(--muted);line-height:1.8;margin:0 0 22px}
+    .checklist{list-style:none;padding:0;margin:0;display:grid;gap:12px}.checklist li{display:flex;align-items:center;gap:10px;color:#1d2b3d;font-weight:700}.bullet{width:22px;height:22px;border-radius:50%;background:#eafcf3;color:#0d8452;display:grid;place-items:center;font-size:0.8rem;font-weight:900}
+    .right{display:flex;align-items:center;justify-content:center;padding:30px 20px;background:linear-gradient(180deg,#101827,#1b2b42);color:#fff}
+    .auth-card{width:min(420px,100%);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:28px}.auth-card h2{margin:0 0 6px;font-size:1.8rem}.sub{color:#d9e3f7;margin:0 0 22px}.form-group{margin-bottom:16px}.label{display:block;font-weight:700;margin-bottom:8px;color:#edf3ff}.input{width:100%;padding:14px 16px;border-radius:12px;border:1px solid rgba(255,255,255,0.14);background:rgba(255,255,255,0.03);color:#fff;outline:none}.input::placeholder{color:#bfcfe9}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;width:100%;border-radius:12px;border:1px solid transparent;font-weight:800;cursor:pointer}.btn.primary{background:linear-gradient(135deg,var(--primary),#5f73ff);color:#fff}.alt{margin-top:14px;text-align:center;color:#dfe7f7;font-size:0.92rem}.alt a{color:#87d9ff;font-weight:700}
+    @media (max-width:860px){.auth-wrap{grid-template-columns:1fr}.nav{display:none}}
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;height:76px;">
+      <div class="brand"><div class="brand-mark">N</div><span>NorthStar</span></div>
+      <div class="nav"><a href="index.html">Home</a><a href="features.html">Features</a><a href="pricing.html">Pricing</a><a href="app.html">Demo</a></div>
+    </div>
+  </header>
+
+  <div class="auth-wrap">
+    <div class="left">
+      <div class="panel">
+        <span class="eyebrow">Start strong</span>
+        <h1>Move smarter. Budget calmer.</h1>
+        <p class="lead">NorthStar gives first-time movers a simple system for real budgets, spending awareness, and confidence in a new city.</p>
+        <ul class="checklist">
+          <li><span class="bullet">✓</span>Built for students and young professionals</li>
+          <li><span class="bullet">✓</span>Budgeting and habit tracking in one place</li>
+          <li><span class="bullet">✓</span>90-day life stabilization roadmap</li>
+        </ul>
+      </div>
+    </div>
+    <div class="right">
+      <div class="auth-card">
+        <h2>Welcome back</h2>
+        <p class="sub">Sign in to keep your budget and city plan on track.</p>
+        <form>
+          <div class="form-group"><label class="label">Email</label><input class="input" type="email" placeholder="you@example.com" /></div>
+          <div class="form-group"><label class="label">Password</label><input class="input" type="password" placeholder="Enter your password" /></div>
+          <button type="button" class="btn primary" onclick="location.href='dashboard.html'">Log in</button>
+        </form>
+        <div class="alt">Don’t have an account? <a href="signup.html">Create one</a></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NorthStar Dashboard</title>
+  <style>
+    :root{
+      --bg:#f5f8ff;--bg-soft:#eefcf5;--panel:#ffffff;--primary:#3b5bff;--primary-2:#1cc39b;--text:#101828;--muted:#475467;--line:#e6ebf5;--success:#1abf73;--danger:#ef4444;--shadow:0 20px 60px rgba(15,34,68,0.08);
+    }
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:linear-gradient(180deg,#f4f7ff,#fff 18%,#f6fff9);color:var(--text)}
+    a{text-decoration:none;color:inherit} .container{width:min(1320px,calc(100% - 28px));margin:0 auto}
+    .topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,0.82);backdrop-filter:blur(12px);border-bottom:1px solid rgba(230,235,245,0.9)}
+    .nav{height:78px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900;font-size:1.35rem}
+    .brand-mark{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--primary-2));display:grid;place-items:center;color:#fff;font-weight:900}
+    .nav-right{display:flex;align-items:center;gap:18px}.nav-link{font-weight:700;color:var(--muted)}.nav-link:hover{color:var(--primary)}.pill{background:#edf3ff;color:var(--primary);padding:10px 14px;border-radius:12px;font-weight:800;border:1px solid #dfe8ff}
+    .app-shell{padding:28px 0 60px}.layout{display:grid;grid-template-columns:260px minmax(0,1fr) 360px;gap:22px}.sidebar,.main,.rightbar{background:rgba(255,255,255,0.8);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow)}
+    .sidebar{padding:18px}.nav-item{display:flex;align-items:center;gap:12px;padding:14px 12px;border-radius:14px;color:var(--muted);font-weight:700;margin-bottom:6px}.nav-item.active{background:linear-gradient(135deg,#edf3ff,#eafcf6);color:var(--primary);border:1px solid #dde8ff}.icon{width:34px;height:34px;border-radius:12px;display:grid;place-items:center;background:#eef3ff;color:var(--primary);font-weight:900}.sidebar-card{margin-top:20px;background:linear-gradient(135deg,#edf3ff,#edfff7);border:1px solid #dfe8ff;border-radius:18px;padding:18px}.sidebar-card h4{margin:0 0 8px;font-size:1.06rem}.sidebar-card p{margin:0;color:var(--muted);line-height:1.7}.main{padding:22px}.hero{background:linear-gradient(135deg,#f7faff,#f4fff8);border:1px solid var(--line);border-radius:26px;padding:24px;display:grid;grid-template-columns:1.2fr 0.8fr;gap:20px}.kicker{display:inline-block;padding:8px 12px;background:#edf3ff;color:var(--primary);border-radius:999px;font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:0.06em}.hero h1{font-size:clamp(2.3rem,3.1vw,4rem);letter-spacing:-0.06em;line-height:1.04;margin:18px 0 12px}.hero p{margin:0;color:var(--muted);line-height:1.8}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}.btn{min-height:48px;padding:0 18px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;font-weight:800;border:1px solid transparent}.btn.primary{background:linear-gradient(135deg,var(--primary),#5d73ff);color:#fff;box-shadow:0 16px 25px rgba(59,91,255,0.18)}.btn.secondary{background:#fff;border-color:var(--line);color:var(--text)}.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}.hero-stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px}.hero-stat .label{color:var(--muted);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;font-weight:800}.hero-stat .value{margin-top:10px;font-size:1.7rem;font-weight:900;letter-spacing:-0.06em}.budget-card{background:linear-gradient(135deg,var(--primary),#5d73ff);color:white;border-radius:22px;padding:18px 18px 16px;display:flex;flex-direction:column;justify-content:space-between;min-height:230px}.budget-head{display:flex;justify-content:space-between;align-items:center}.budget-badge{background:rgba(255,255,255,0.12);padding:8px 10px;border-radius:999px;font-size:0.72rem;font-weight:800;border:1px solid rgba(255,255,255,0.12)}.budget-value{font-size:2.4rem;font-weight:900;letter-spacing:-0.06em;margin-top:26px}.budget-row{display:flex;justify-content:space-between;align-items:center;opacity:0.9;font-weight:700;margin-top:12px}.panel{background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px;margin-top:22px}.panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.panel-head h3{margin:0;font-size:1.2rem}.tag{display:inline-flex;align-items:center;justify-content:center;padding:7px 10px;border-radius:999px;font-size:0.72rem;font-weight:800}.tag.green{background:#eafcf3;color:#0b8150}.tag.orange{background:#fff4df;color:#994f00}.tag.blue{background:#edf3ff;color:#2349c5}.stats-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:20px}.list{display:grid;gap:12px}.list-item{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:#f8fafc}.list-left{display:flex;align-items:center;gap:12px;font-weight:700}.dot{width:10px;height:10px;border-radius:50%}.dot.purple{background:linear-gradient(135deg,var(--primary),#5e73ff)}.dot.green{background:linear-gradient(135deg,var(--primary-2),#3ec2b0)}.dot.orange{background:linear-gradient(135deg,#f7b955,#ff8d3c)}.progress{position:relative;height:12px;background:#edf2f8;border-radius:999px;overflow:hidden}.progress > span{display:block;height:100%;width:68%;background:linear-gradient(90deg,var(--primary),var(--primary-2));border-radius:999px}.bars{display:flex;align-items:flex-end;gap:14px;height:170px;margin-top:12px}.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:8px}.bar{width:100%;background:linear-gradient(180deg,var(--primary),#6f83ff);border-radius:12px 12px 0 0;min-height:30px}.bar.orange{background:linear-gradient(180deg,#ffb84d,#ff8d3c)}.bar.green{background:linear-gradient(180deg,#1cc39b,#10b981)}.bar-label{font-size:0.75rem;color:var(--muted);font-weight:700}.goal-list{display:grid;gap:12px}.goal-item{padding:14px;border:1px solid var(--line);border-radius:16px;background:#f8fafc}.goal-top{display:flex;justify-content:space-between;align-items:center;font-weight:800}.goal-sub{margin-top:8px;color:var(--muted);font-size:0.86rem;line-height:1.6}.rightbar{padding:18px}.profile{display:flex;align-items:center;gap:12px;padding:8px 0 18px}.avatar{width:52px;height:52px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(135deg,#edf3ff,#dafdf1);font-weight:900;color:var(--primary);font-size:1.25rem}.profile h4{margin:0;font-size:1.1rem}.profile p{margin:4px 0 0;color:var(--muted);font-size:0.85rem}.score-box{background:linear-gradient(135deg,#edf5ff,#f3fff8);border:1px solid #dfeafb;border-radius:18px;padding:16px}.score-head{display:flex;justify-content:space-between;align-items:center}.score-value{font-size:2.3rem;font-weight:900;letter-spacing:-0.06em;margin-top:10px}.mini-progress{height:10px;background:#e7edf8;border-radius:999px;overflow:hidden;margin-top:10px}.mini-progress > span{display:block;width:68%;height:100%;background:linear-gradient(90deg,var(--primary),var(--primary-2));border-radius:999px}.checklist{list-style:none;padding:0;margin:18px 0 0}.checklist li{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-weight:700}.checklist li:last-child{border-bottom:none}.checkmark{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:#e6f9ef;color:#0b8451;font-weight:900;font-size:0.8rem}.tip{margin-top:18px;background:linear-gradient(135deg,#fff7ed,#fffaf2);padding:16px;border:1px solid #f7d9a6;border-radius:18px}.tip h4{margin:0 0 8px}.tip p{margin:0;color:#92400e;line-height:1.7}@media (max-width:1080px){.layout{grid-template-columns:1fr}.sidebar,.rightbar{display:none}}@media (max-width:560px){.hero{grid-template-columns:1fr}.hero-stats{grid-template-columns:1fr}.actions{flex-direction:column;align-items:stretch}.btn{width:100%}}</style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <div class="brand"><div class="brand-mark">N</div><span>NorthStar</span></div>
+      <div class="nav-right">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="features.html" class="nav-link">Features</a>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+        <a href="dashboard.html" class="pill">Dashboard</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container app-shell">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="nav-item active"><div class="icon">⌂</div><span>Dashboard</span></div>
+        <div class="nav-item"><div class="icon">💰</div><span>Budget</span></div>
+        <div class="nav-item"><div class="icon">📈</div><span>Analytics</span></div>
+        <div class="nav-item"><div class="icon">✅</div><span>Checklist</span></div>
+        <div class="nav-item"><div class="icon">🏙️</div><span>City guide</span></div>
+        <div class="nav-item"><div class="icon">⚙️</div><span>Settings</span></div>
+
+        <div class="sidebar-card">
+          <h4>Smart coach</h4>
+          <p>You are spending above your ideal lifestyle benchmark. Stay focused this month and reduce high-risk impulse spending.</p>
+        </div>
+      </aside>
+
+      <main class="main">
+        <section class="hero">
+          <div>
+            <span class="kicker">Welcome back</span>
+            <h1>Build a stronger start in your new city.</h1>
+            <p>Your move is going well. Your biggest risk is lifestyle spending pressure. Focus on essentials, savings, and a stable routine before buying to impress.</p>
+            <div class="actions">
+              <a href="onboarding.html" class="btn primary">Continue onboarding</a>
+              <a href="pricing.html" class="btn secondary">View pricing</a>
+            </div>
+            <div class="hero-stats">
+              <div class="hero-stat"><div class="label">Income</div><div class="value">₹25k</div></div>
+              <div class="hero-stat"><div class="label">Savings</div><div class="value">₹5k</div></div>
+              <div class="hero-stat"><div class="label">Left</div><div class="value">₹8.7k</div></div>
+            </div>
+          </div>
+          <div class="budget-card">
+            <div class="budget-head"><span>Budget health</span><span class="budget-badge">On track</span></div>
+            <div class="budget-value">₹25,000</div>
+            <div class="budget-row"><span>Essentials</span><span>₹14,300</span></div>
+            <div class="budget-row"><span>Flexible</span><span>₹4,000</span></div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><h3>Spending breakdown</h3><span class="tag blue">This month</span></div>
+          <div class="stats-grid">
+            <div class="list">
+              <div class="list-item"><div class="list-left"><span class="dot purple"></span>Rent</div><strong>₹7,000</strong></div>
+              <div class="list-item"><div class="list-left"><span class="dot green"></span>Food</div><strong>₹4,500</strong></div>
+              <div class="list-item"><div class="list-left"><span class="dot orange"></span>Lifestyle</div><strong>₹4,000</strong></div>
+            </div>
+            <div>
+              <div class="panel-head" style="margin-bottom:8px"><h3>Budget status</h3><span class="tag orange">Needs focus</span></div>
+              <div class="progress"><span></span></div>
+              <div style="display:grid;gap:10px;margin-top:16px;">
+                <div style="display:flex;justify-content:space-between"><span>Used</span><strong>₹16,300</strong></div>
+                <div style="display:flex;justify-content:space-between"><span>Remaining</span><strong>₹8,700</strong></div>
+                <div style="display:flex;justify-content:space-between"><span>Emergency</span><strong>₹2,500</strong></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><h3>Goal progress</h3><span class="tag green">3 active</span></div>
+          <div class="goal-list">
+            <div class="goal-item"><div class="goal-top"><span>Emergency fund</span><strong>₹2,500 / ₹5k</strong></div><div class="goal-sub">Build a safety buffer before your next major purchase.</div></div>
+            <div class="goal-item"><div class="goal-top"><span>Cut lifestyle spend</span><strong>₹1,000 saved</strong></div><div class="goal-sub">Reduce “show-off” purchases and preserve budget for essentials.</div></div>
+            <div class="goal-item"><div class="goal-top"><span>City setup plan</span><strong>80% complete</strong></div><div class="goal-sub">Finalize stay, commute, and local cost reality in your new city.</div></div>
+          </div>
+        </section>
+      </main>
+
+      <aside class="rightbar">
+        <div class="profile">
+          <div class="avatar">A</div>
+          <div>
+            <h4>Aarav</h4>
+            <p>Delhi starter</p>
+          </div>
+        </div>
+
+        <div class="score-box">
+          <div class="score-head"><strong>Life stability score</strong><span class="tag blue">68%</span></div>
+          <div class="score-value">68%</div>
+          <div class="mini-progress"><span></span></div>
+        </div>
+
+        <ul class="checklist">
+          <li><span class="checkmark">✓</span>Set monthly spending cap</li>
+          <li><span class="checkmark">✓</span>Save before lifestyle buys</li>
+          <li><span class="checkmark">✓</span>Build emergency buffer</li>
+          <li><span class="checkmark">✓</span>Track first 30 days</li>
+          <li><span class="checkmark">✓</span>Learn local cost reality</li>
+        </ul>
+
+        <div class="tip">
+          <h4>Coach tip</h4>
+          <p>“Don’t spend to be seen. Spend to become stable. The first 90 days are about survival, not image.”</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</body>
+</html>
