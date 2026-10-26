@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NorthStar App UI</title>
+  <style>
+    :root{
+      --bg:#f5f7ff;
+      --panel:#ffffff;
+      --primary:#4338ca;
+      --primary-2:#22c55e;
+      --accent:#f59e0b;
+      --danger:#ef4444;
+      --warning:#f97316;
+      --text:#0f172a;
+      --muted:#64748b;
+      --line:#e2e8f0;
+      --dark:#111827;
+      --shadow:0 20px 40px rgba(15,23,42,0.08);
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Inter, Segoe UI, Arial, sans-serif;
+      background:linear-gradient(180deg, #edf3ff 0%, #f5fff8 100%);
+      color:var(--text);
+    }
+
+    .app-shell{
+      max-width:1400px;
+      margin:0 auto;
+      padding:26px;
+    }
+
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      background:linear-gradient(135deg, #111827,#1f2942);
+      color:#fff;
+      border-radius:24px;
+      padding:18px 20px;
+      box-shadow:var(--shadow);
+      margin-bottom:24px;
+    }
+
+    .brand{
+      display:flex;align-items:center;gap:12px;font-weight:900;font-size:1.5rem;
+    }
+    .brand-badge{
+      width:38px;height:38px;border-radius:12px;
+      display:grid;place-items:center;background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      font-weight:900;
+    }
+
+    .userbar{
+      display:flex;align-items:center;gap:16px;
+    }
+    .mini-btn{
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.1);
+      color:#fff;
+      border-radius:12px;
+      padding:10px 14px;
+      font-weight:700;
+    }
+
+    .layout{
+      display:grid;
+      grid-template-columns:270px 1fr 380px;
+      gap:24px;
+    }
+
+    .sidebar, .content, .rightbar{
+      background:rgba(255,255,255,0.9);
+      border:1px solid var(--line);
+      border-radius:26px;
+      box-shadow:var(--shadow);
+    }
+
+    .sidebar{
+      padding:20px 18px;
+    }
+    .nav-group{
+      margin-top:8px;
+    }
+    .nav-item{
+      display:flex;align-items:center;gap:12px;
+      padding:14px 12px;
+      border-radius:14px;
+      margin-bottom:8px;
+      font-weight:700;
+      color:#475569;
+    }
+    .nav-item.active{
+      background:linear-gradient(135deg, #eef2ff, #eafcf5);
+      color:var(--primary);
+      border:1px solid #dfe7ff;
+    }
+    .nav-icon{
+      width:32px;height:32px;border-radius:10px;
+      background:#eef3ff;display:grid;place-items:center;font-weight:900;
+      color:var(--primary);
+    }
+
+    .sidebar-card{
+      margin-top:18px;
+      background:linear-gradient(135deg,#eef3ff,#ecfff7);
+      border:1px solid #dfe7ff;
+      border-radius:18px;
+      padding:16px;
+    }
+    .sidebar-card h4{
+      margin:0 0 8px;
+      font-size:1rem;
+    }
+    .sidebar-card p{
+      margin:0;
+      line-height:1.6;
+      color:var(--muted);
+      font-size:0.9rem;
+    }
+
+    .content{
+      padding:22px;
+    }
+
+    .hero-card{
+      background:linear-gradient(145deg, #f7faff, #f4fff8);
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:20px;
+      display:grid;
+      grid-template-columns:1.2fr 0.8fr;
+      gap:18px;
+    }
+
+    .hero-title{
+      font-size:2.2rem;
+      letter-spacing:-0.06em;
+      margin:0 0 8px;
+      line-height:1.1;
+    }
+    .hero-sub{
+      color:var(--muted);
+      line-height:1.7;
+      font-size:0.98rem;
+      margin:0;
+    }
+
+    .hero-actions{
+      display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:18px;
+    }
+    .btn{
+      border:none;border-radius:12px;padding:12px 16px;font-weight:800;cursor:pointer;
+    }
+    .btn.primary{
+      background:linear-gradient(135deg,var(--primary),#6153ee);
+      color:#fff;
+      box-shadow:0 16px 24px rgba(67,56,202,0.18);
+    }
+    .btn.secondary{
+      background:#fff;border:1px solid var(--line);color:var(--text);
+    }
+
+    .hero-stats{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      margin-top:22px;
+    }
+    .hero-stat{
+      background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;
+    }
+    .hero-stat .label{
+      color:var(--muted);font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;font-weight:800;
+    }
+    .hero-stat .value{
+      font-size:1.7rem;font-weight:900;letter-spacing:-0.05em;margin-top:10px;
+    }
+
+    .budget-box{
+      background:linear-gradient(135deg, #4338ca,#5d57ee);
+      color:#fff;
+      border-radius:22px;
+      padding:18px 18px 16px;
+      display:flex; flex-direction:column; justify-content:space-between; min-height:220px;
+    }
+    .budget-head{
+      display:flex;justify-content:space-between;align-items:center;
+    }
+    .budget-title{
+      font-weight:800;opacity:0.85;text-transform:uppercase;letter-spacing:0.06em;font-size:0.76rem;
+    }
+    .budget-badge{
+      background:rgba(255,255,255,0.12);
+      border:1px solid rgba(255,255,255,0.12);
+      padding:8px 10px;border-radius:999px;font-size:0.72rem;font-weight:800;
+    }
+    .budget-money{
+      font-size:2.4rem;font-weight:900;letter-spacing:-0.06em;margin-top:30px;
+    }
+    .budget-sub{
+      display:flex;justify-content:space-between;align-items:center;
+      font-size:0.9rem;font-weight:700;opacity:0.88;
+      margin-top:18px;
+    }
+
+    .section-row{
+      display:grid;
+      grid-template-columns:1.2fr 0.8fr;
+      gap:22px;
+      margin-top:22px;
+    }
+    .panel{
+      background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px;
+    }
+    .panel-header{
+      display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;
+    }
+    .panel-header h3{
+      margin:0;font-size:1.2rem;
+    }
+    .tag{
+      display:inline-block;padding:7px 10px;border-radius:999px;font-size:0.72rem;font-weight:800;
+    }
+    .tag.green{background:#e8fff1;color:#117b48}
+    .tag.orange{background:#fff4df;color:#a25e00}
+    .tag.red{background:#ffe9e9;color:#b42318}
+    .tag.blue{background:#edf3ff;color:#2349c5}
+
+    .mood{
+      display:flex;flex-direction:column;gap:12px;
+    }
+    .mood-item{
+      display:flex;align-items:center;justify-content:space-between;padding:14px 12px;border:1px solid var(--line);border-radius:16px;
+    }
+    .mood-left{
+      display:flex;align-items:center;gap:12px;font-weight:700;
+    }
+    .emoji{
+      width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:#f3f4ff;font-size:1.3rem;
+    }
+    .progress{
+      position:relative;
+      width:100%;height:12px;background:#edf2f8;border-radius:999px;overflow:hidden;margin:8px 0 14px;
+    }
+    .progress>span{
+      display:block;height:100%;background:linear-gradient(90deg,var(--primary),var(--primary-2));border-radius:999px;
+    }
+
+    .expense-list{
+      display:grid;gap:10px;margin-top:12px;
+    }
+    .expense-item{
+      display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:#f8fafc;
+    }
+    .expense-left{
+      display:flex;align-items:center;gap:12px;font-weight:700;
+    }
+    .p-chip{
+      width:10px;height:10px;border-radius:50%;
+    }
+
+    .chart-card{
+      background:linear-gradient(180deg,#fff,#f9fbff);border:1px solid var(--line);border-radius:22px;padding:18px;
+    }
+    .bars{
+      display:flex;align-items:flex-end;gap:14px;height:180px;margin-top:12px;
+    }
+    .bar-col{
+      flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;
+    }
+    .bar{
+      width:100%;background:linear-gradient(180deg,var(--primary),#7d74ff);border-radius:12px 12px 0 0;
+      min-height:30px;
+    }
+    .bar.orange{ background:linear-gradient(180deg,#f59e0b,#f97316); }
+    .bar.green{ background:linear-gradient(180deg,#22c55e,#16a34a); }
+    .bar-label{
+      font-size:0.78rem;color:var(--muted);font-weight:700;
+    }
+
+    .goal-list{
+      display:grid;gap:12px;margin-top:12px;
+    }
+    .goal-item{
+      padding:14px 12px;border:1px solid var(--line);border-radius:18px;background:#f8fafc;
+    }
+    .goal-top{
+      display:flex;justify-content:space-between;align-items:center;font-weight:800;
+    }
+    .goal-sub{
+      margin-top:8px;color:var(--muted);font-size:0.86rem;
+    }
+
+    .rightbar{
+      padding:18px;
+    }
+    .profile-box{
+      display:flex;align-items:center;gap:12px;padding:10px 0 18px;
+    }
+    .avatar{
+      width:54px;height:54px;border-radius:18px;background:linear-gradient(135deg,#e0ebff,#dffcf1);display:grid;place-items:center;
+      font-weight:900;color:var(--primary);
+      font-size:1.3rem;
+    }
+    .profile-box h4{ margin:0; font-size:1.1rem; }
+    .profile-box p{ margin:4px 0 0; color:var(--muted); font-size:0.85rem; }
+
+    .score-box{
+      background:linear-gradient(135deg,#ecf5ff,#f3fff8);
+      border:1px solid #dfeafc;
+      border-radius:18px;padding:16px;
+      margin-top:10px;
+    }
+    .score-header{
+      display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;
+    }
+    .score-value{
+      font-size:2.2rem;font-weight:900;letter-spacing:-0.05em;
+    }
+    .mini-progress{
+      height:10px;background:#e6edf7;border-radius:999px;overflow:hidden;margin-top:10px;
+    }
+    .mini-progress>span{
+      display:block;height:100%;
+      width:68%;
+      background:linear-gradient(90deg,var(--primary),var(--primary-2));
+      border-radius:999px;
+    }
+
+    .checklist{
+      list-style:none;padding:0;margin:18px 0 0;
+    }
+    .checklist li{
+      display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-weight:700;color:#1f2a37;
+    }
+    .checklist li:last-child{border-bottom:none}
+    .checkmark{
+      width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:#e7f8ee;color:#0a8a4b;font-weight:900;
+      font-size:0.8rem;
+    }
+
+    .tip-box{
+      margin-top:18px;background:linear-gradient(135deg,#fff7ed,#fffaf2);border:1px solid #f9d7a7;border-radius:18px;padding:16px;
+    }
+    .tip-box h4{margin:0 0 8px;}
+    .tip-box p{margin:0;color:#92400e;line-height:1.7;}
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-badge">N</div>
+        <span>NorthStar</span>
+      </div>
+      <div class="userbar">
+        <button class="mini-btn">New City</button>
+        <button class="mini-btn">+ Add expense</button>
+      </div>
+    </div>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="nav-group">
+          <div class="nav-item active">
+            <div class="nav-icon">⌂</div>
+            <span>Dashboard</span>
+          </div>
+          <div class="nav-item">
+            <div class="nav-icon">💰</div>
+            <span>Budget</span>
+          </div>
+          <div class="nav-item">
+            <div class="nav-icon">📈</div>
+            <span>Analytics</span>
+          </div>
+          <div class="nav-item">
+            <div class="nav-icon">✅</div>
+            <span>Checklist</span>
+          </div>
+          <div class="nav-item">
+            <div class="nav-icon">🏙️</div>
+            <span>City Guide</span>
+          </div>
+          <div class="nav-item">
+            <div class="nav-icon">⚙️</div>
+            <span>Settings</span>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h4>Smart coach</h4>
+          <p>You're spending above your ideal lifestyle benchmark. Keep impulse purchases in check for the next 30 days.</p>
+        </div>
+      </aside>
+
+      <main class="content">
+        <div class="hero-card">
+          <div>
+            <h1 class="hero-title">Welcome back, Aarav</h1>
+            <p class="hero-sub">
+              Your move to Delhi is going well. Your biggest risk is lifestyle spending pressure.
+              Keep your essentials in check and stay focused on the first 90 days.
+            </p>
+
+            <div class="hero-actions">
+              <button class="btn primary">Build my budget</button>
+              <button class="btn secondary">See city guide</button>
+            </div>
+
+            <div class="hero-stats">
+              <div class="hero-stat">
+                <div class="label">Monthly income</div>
+                <div class="value">₹25k</div>
+              </div>
+              <div class="hero-stat">
+                <div class="label">Savings</div>
+                <div class="value">₹5k</div>
+              </div>
+              <div class="hero-stat">
+                <div class="label">Left</div>
+                <div class="value">₹8.7k</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="budget-box">
+            <div class="budget-head">
+              <div class="budget-title">Budget health</div>
+              <div class="budget-badge">On track</div>
+            </div>
+            <div class="budget-money">₹25,000</div>
+            <div class="budget-sub">
+              <span>Essentials</span>
+              <span>₹14,300</span>
+            </div>
+            <div class="budget-sub">
+              <span>Flexible</span>
+              <span>₹4,000</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-row">
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Money mood</h3>
+              <span class="tag green">Healthy</span>
+            </div>
+
+            <div class="mood">
+              <div class="mood-item">
+                <div class="mood-left">
+                  <div class="emoji">💸</div>
+                  <span>New city spending</span>
+                </div>
+                <strong>₹12,400</strong>
+              </div>
+
+              <div class="mood-item">
+                <div class="mood-left">
+                  <div class="emoji">🧠</div>
+                  <span>Stress level</span>
+                </div>
+                <strong>Moderate</strong>
+              </div>
+
+              <div class="mood-item">
+                <div class="mood-left">
+                  <div class="emoji">🛡️</div>
+                  <span>Impulse risk</span>
+                </div>
+                <strong>High</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Budget status</h3>
+              <span class="tag orange">Needs focus</span>
+            </div>
+
+            <div class="progress"><span style="width:67%"></span></div>
+
+            <div style="display:grid; gap:10px;">
+              <div style="display:flex;justify-content:space-between;">
+                <span style="font-weight:700;">Used</span>
+                <strong>₹16,300</strong>
+              </div>
+              <div style="display:flex;justify-content:space-between;">
+                <span style="font-weight:700;">Remaining</span>
+                <strong>₹8,700</strong>
+              </div>
+              <div style="display:flex;justify-content:space-between;">
+                <span style="font-weight:700;">Emergency fund</span>
+                <strong>₹2,500</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-row">
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Spending breakdown</h3>
+              <span class="tag blue">This month</span>
+            </div>
+
+            <div class="expense-list">
+              <div class="expense-item">
+                <div class="expense-left">
+                  <span class="p-chip" style="background:#4338ca"></span>
+                  <span>Rent</span>
+                </div>
+                <strong>₹7,000</strong>
+              </div>
+
+              <div class="expense-item">
+                <div class="expense-left">
+                  <span class="p-chip" style="background:#22c55e"></span>
+                  <span>Food</span>
+                </div>
+                <strong>₹4,500</strong>
+              </div>
+
+              <div class="expense-item">
+                <div class="expense-left">
+                  <span class="p-chip" style="background:#f59e0b"></span>
+                  <span>Lifestyle</span>
+                </div>
+                <strong>₹4,000</strong>
+              </div>
+
+              <div class="expense-item">
+                <div class="expense-left">
+                  <span class="p-chip" style="background:#ef4444"></span>
+                  <span>Travel</span>
+                </div>
+                <strong>₹1,800</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="chart-card">
+            <div class="panel-header">
+              <h3>Goal progress</h3>
+            </div>
+
+            <div class="bars">
+              <div class="bar-col">
+                <div class="bar" style="height:55%"></div>
+                <div class="bar-label">Jan</div>
+              </div>
+              <div class="bar-col">
+                <div class="bar orange" style="height:68%"></div>
+                <div class="bar-label">Feb</div>
+              </div>
+              <div class="bar-col">
+                <div class="bar green" style="height:82%"></div>
+                <div class="bar-label">Mar</div>
+              </div>
+              <div class="bar-col">
+                <div class="bar" style="height:92%"></div>
+                <div class="bar-label">Apr</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-top:22px;">
+          <div class="panel-header">
+            <h3>Goals</h3>
+            <span class="tag green">3 active</span>
+          </div>
+
+          <div class="goal-list">
+            <div class="goal-item">
+              <div class="goal-top">
+                <span>Emergency fund</span>
+                <strong>₹2,500 / ₹5,000</strong>
+              </div>
+              <div class="goal-sub">Build a safety buffer before your next major purchase.</div>
+            </div>
+
+            <div class="goal-item">
+              <div class="goal-top">
+                <span>Cut lifestyle spend</span>
+                <strong>₹1,000 saved</strong>
+              </div>
+              <div class="goal-sub">Reduce “show-off spending” to protect your essentials.</div>
+            </div>
+
+            <div class="goal-item">
+              <div class="goal-top">
+                <span>City setup plan</span>
+                <strong>80% complete</strong>
+              </div>
+              <div class="goal-sub">Finalize stay, commute, and local spending habits in your new city.</div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <aside class="rightbar">
+        <div class="profile-box">
+          <div class="avatar">A</div>
+          <div>
+            <h4>Aarav</h4>
+            <p>Delhi starter</p>
+          </div>
+        </div>
+
+        <div class="score-box">
+          <div class="score-header">
+            <strong>Life stability score</strong>
+            <span class="tag blue">68%</span>
+          </div>
+          <div class="score-value">68%</div>
+          <div class="mini-progress"><span></span></div>
+        </div>
+
+        <ul class="checklist">
+          <li><span class="checkmark">✓</span> Set monthly spending cap</li>
+          <li><span class="checkmark">✓</span> Save before lifestyle buys</li>
+          <li><span class="checkmark">✓</span> Build emergency buffer</li>
+          <li><span class="checkmark">✓</span> Track first 30 days</li>
+          <li><span class="checkmark">✓</span> Learn local cost reality</li>
+        </ul>
+
+        <div class="tip-box">
+          <h4>Coach tip</h4>
+          <p>“Don’t spend to be seen. Spend to become stable. The first 90 days are about survival, not image.”</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</body>
+</html>
