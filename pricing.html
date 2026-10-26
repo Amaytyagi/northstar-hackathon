@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NorthStar | Pricing</title>
+  <style>
+    :root{--bg:#f5f8ff;--primary:#3b5bff;--primary-2:#1cc39b;--text:#101828;--muted:#475467;--line:#e6ebf5;--card:#fff;--shadow:0 20px 60px rgba(15,34,68,0.08)}
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:linear-gradient(180deg,#f4f7ff,#fff 20%,#f6fff9);color:var(--text)}.container{width:min(1180px,calc(100% - 32px));margin:0 auto}a{text-decoration:none;color:inherit}
+    .top{height:78px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:rgba(255,255,255,0.8);backdrop-filter:blur(12px);border-bottom:1px solid rgba(230,235,245,0.9);z-index:10}.brand{display:flex;align-items:center;gap:12px;font-weight:900}.brand-mark{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--primary-2));display:grid;place-items:center;color:#fff}.nav{display:flex;gap:24px;color:var(--muted);font-weight:600}.nav a:hover{color:var(--primary)}.cta{background:linear-gradient(135deg,var(--primary),#5973ff);color:#fff;padding:12px 18px;border-radius:12px;font-weight:800}
+    .page{padding:70px 0}.eyebrow{display:inline-block;padding:8px 14px;border-radius:999px;background:#edf3ff;color:var(--primary);font-size:0.78rem;font-weight:800;letter-spacing:0.05em;text-transform:uppercase}h1{margin:18px 0 18px;font-size:clamp(2.8rem,4vw,4.4rem);letter-spacing:-0.06em;line-height:1}.lead{max-width:720px;color:var(--muted);line-height:1.8;font-size:1.05rem}.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px}.card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px 22px;box-shadow:0 8px 24px rgba(15,34,68,0.03)}.card.featured{background:linear-gradient(180deg,#f4f8ff,#f4fff8);border:1.5px solid #dfe8ff;position:relative;overflow:hidden}.card.featured::before{content:"Most Popular";position:absolute;top:16px;right:16px;background:linear-gradient(135deg,var(--primary),#5673ff);color:#fff;font-size:0.72rem;padding:8px 10px;border-radius:999px;font-weight:800}.price{font-size:2.8rem;font-weight:900;letter-spacing:-0.07em;margin:0 0 10px}.price small{font-size:0.9rem;color:var(--muted);font-weight:700}.card h3{margin:0 0 12px;font-size:1.4rem}.card p{margin:0 0 18px;color:var(--muted);line-height:1.7}.card ul{list-style:none;padding:0;margin:0 0 22px;display:grid;gap:10px}.card li{display:flex;align-items:center;gap:10px;font-weight:600}.check{width:20px;height:20px;border-radius:50%;background:#e7f9ee;color:#0d8a58;display:grid;place-items:center;font-weight:900;font-size:0.75rem}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 22px;border-radius:12px;font-weight:800}.btn.primary{background:linear-gradient(135deg,var(--primary),#5f73ff);color:#fff}.btn.secondary{background:#fff;color:var(--text);border:1px solid var(--line)}.cta-box{margin-top:32px;background:linear-gradient(135deg,#101827,#1b2b42);border-radius:26px;padding:36px 30px;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:20px}.cta-box h3{margin:0 0 10px;font-size:clamp(2rem,3vw,3rem);letter-spacing:-0.06em}.cta-box p{margin:0;color:#dfe7f7;line-height:1.7}.footer{text-align:center;color:var(--muted);padding:26px 0 50px;font-weight:600}@media (max-width:860px){.pricing{grid-template-columns:1fr}.nav{display:none}.cta-box{flex-direction:column;align-items:flex-start}}</style>
+</head>
+<body>
+  <header class="top">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;height:78px;">
+      <div class="brand"><div class="brand-mark">N</div><span>NorthStar</span></div>
+      <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="app.html">Demo</a>
+      </div>
+      <a href="app.html" class="cta">Open app</a>
+    </div>
+  </header>
+
+  <section class="page">
+    <div class="container">
+      <span class="eyebrow">Pricing</span>
+      <h1>Simple plans for a stronger start.</h1>
+      <p class="lead">NorthStar helps users build stability in the first months of a new city and gives them the tools to keep their money and confidence under control.</p>
+
+      <div class="pricing">
+        <div class="card">
+          <h3>Starter</h3>
+          <div class="price">₹0 <small>/ month</small></div>
+          <p>Perfect for trying the product and building the first budget.</p>
+          <ul>
+            <li><span class="check">✓</span>Budget planner</li>
+            <li><span class="check">✓</span>Expense tracking</li>
+            <li><span class="check">✓</span>Basic insights</li>
+          </ul>
+          <a href="app.html" class="btn secondary" style="width:100%;">Try free</a>
+        </div>
+
+        <div class="card featured">
+          <h3>Growth</h3>
+          <div class="price">₹249 <small>/ month</small></div>
+          <p>For students and young professionals who need deeper financial guidance.</p>
+          <ul>
+            <li><span class="check">✓</span>AI budget recommendations</li>
+            <li><span class="check">✓</span>Risk alerts</li>
+            <li><span class="check">✓</span>Local city spending insights</li>
+            <li><span class="check">✓</span>90-day life roadmap</li>
+          </ul>
+          <a href="app.html" class="btn primary" style="width:100%;">Start now</a>
+        </div>
+
+        <div class="card">
+          <h3>Enterprise</h3>
+          <div class="price">Custom</div>
+          <p>For campuses, mentoring organizations, and institutions supporting new movers.</p>
+          <ul>
+            <li><span class="check">✓</span>Bulk onboarding</li>
+            <li><span class="check">✓</span>Institutional dashboards</li>
+            <li><span class="check">✓</span>Support and analytics</li>
+          </ul>
+          <a href="index.html" class="btn secondary" style="width:100%;">Talk to sales</a>
+        </div>
+      </div>
+
+      <div class="cta-box">
+        <div>
+          <h3>Explore the product.</h3>
+          <p>See how NorthStar helps users live smarter in a new city.</p>
+        </div>
+        <a href="app.html" class="btn primary" style="background:linear-gradient(135deg,#1cc39b,#18a873);">Open demo</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">© 2026 NorthStar. Built for first-time movers.</div>
+</body>
+</html>
