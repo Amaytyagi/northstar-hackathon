@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NorthStar | Features</title>
+  <style>
+    :root{--bg:#f5f8ff;--primary:#3b5bff;--primary-2:#1cc39b;--text:#101828;--muted:#475467;--line:#e6ebf5;--card:#fff;--shadow:0 20px 60px rgba(15,34,68,0.08)}
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:linear-gradient(180deg,#f4f7ff,#fff 20%,#f6fff9);color:var(--text)}
+    a{text-decoration:none;color:inherit}.container{width:min(1180px,calc(100% - 32px));margin:0 auto}.top{height:78px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:rgba(255,255,255,0.8);backdrop-filter:blur(12px);border-bottom:1px solid rgba(230,235,245,0.9);z-index:10}.brand{display:flex;align-items:center;gap:12px;font-weight:900}.brand-mark{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--primary-2));display:grid;place-items:center;color:#fff}.nav{display:flex;gap:24px;color:var(--muted);font-weight:600}.nav a:hover{color:var(--primary)}.cta{background:linear-gradient(135deg,var(--primary),#5973ff);color:#fff;padding:12px 18px;border-radius:12px;font-weight:800}
+    .page{padding:64px 0}.hero{padding:28px 0 42px}.eyebrow{display:inline-block;padding:8px 14px;border-radius:999px;background:#edf3ff;color:var(--primary);font-size:0.78rem;font-weight:800;letter-spacing:0.05em;text-transform:uppercase}h1{font-size:clamp(2.5rem,4vw,4.5rem);line-height:1.04;letter-spacing:-0.06em;margin:18px 0}.lead{max-width:720px;color:var(--muted);font-size:1.05rem;line-height:1.8}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:32px}.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:0 10px 25px rgba(15,34,68,0.03)}.icon{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,#edf3ff,#eafcf6);margin-bottom:18px;font-size:1.5rem}.card h3{margin:0 0 12px;font-size:1.35rem}.card p{margin:0;color:var(--muted);line-height:1.8}.cta-box{margin-top:40px;background:linear-gradient(135deg,#101827,#1b2b42);border-radius:26px;padding:36px 30px;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:20px}.cta-box h3{margin:0 0 10px;font-size:clamp(2rem,3vw,3rem);letter-spacing:-0.06em}.cta-box p{margin:0;color:#dfe7f7;line-height:1.7}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 22px;border-radius:12px;background:linear-gradient(135deg,#1cc39b,#18a873);color:#fff;font-weight:800}.footer{text-align:center;color:var(--muted);padding:26px 0 50px;font-weight:600}@media (max-width:860px){.grid{grid-template-columns:1fr}.nav{display:none}.cta-box{flex-direction:column;align-items:flex-start}}</style>
+</head>
+<body>
+  <header class="top">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;height:78px;">
+      <div class="brand"><div class="brand-mark">N</div><span>NorthStar</span></div>
+      <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="app.html">Demo</a>
+      </div>
+      <a href="app.html" class="cta">Open app</a>
+    </div>
+  </header>
+
+  <section class="page hero">
+    <div class="container">
+      <span class="eyebrow">NorthStar Features</span>
+      <h1>Built for the people who are moving into a new life.</h1>
+      <p class="lead">NorthStar is more than a budget tracker. It brings structure, clarity, and emotional confidence to the most stressful time in a young adult’s life: moving to a new place without a safety net.</p>
+
+      <div class="grid">
+        <div class="card"><div class="icon">💸</div><h3>Smart Budget Building</h3><p>Set realistic monthly budgets with automatic guidance based on rent, food, travel, and lifestyle spending.</p></div>
+        <div class="card"><div class="icon">🛡️</div><h3>Impulse Risk Detection</h3><p>Catch the “show-off” spending traps before they turn into debt, stress, or regret.</p></div>
+        <div class="card"><div class="icon">📍</div><h3>City Cost Awareness</h3><p>Understand the real cost of living in a new city so users don’t get surprised by normal monthly expenses.</p></div>
+        <div class="card"><div class="icon">🧠</div><h3>Behavior Guidance</h3><p>Help people make calmer, smarter decisions when social pressure and emotional stress are high.</p></div>
+        <div class="card"><div class="icon">✅</div><h3>90-Day Starter Plan</h3><p>Give users a structured first 90 days with clear goals around savings, stable spending, and adjusting to the city.</p></div>
+        <div class="card"><div class="icon">📈</div><h3>Life Stability Insights</h3><p>Track preparation, savings, and emotional confidence so the first months feel manageable, not overwhelming.</p></div>
+      </div>
+
+      <div class="cta-box">
+        <div>
+          <h3>Ready to see the product?</h3>
+          <p>Experience the actual dashboard and budget flow built for first-time movers.</p>
+        </div>
+        <a class="btn" href="app.html">Open demo</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">© 2026 NorthStar. Built for first-time movers.</div>
+</body>
+</html>
